@@ -20,14 +20,14 @@ services:
       redis:
         condition: service_healthy
     ports:
-      - "127.0.0.1:8000:8000"
+      - "127.0.0.1:8022:8000"
     healthcheck:
       test:
         [
           "CMD",
           "/app/.venv/bin/python",
           "-c",
-          "import urllib.request; urllib.request.urlopen('http://localhost:8000/health', timeout=2).read()",
+          "import urllib.request; urllib.request.urlopen('http://localhost:8022/health', timeout=2).read()",
         ]
       interval: 5s
       timeout: 5s
